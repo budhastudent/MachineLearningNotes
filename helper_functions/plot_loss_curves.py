@@ -4,7 +4,7 @@ def plot_loss_curves(model_fit_out):
   """
   Returns separe loss curves for training & validation metrics
   """
-  loss = history.history["loss"]
+  loss = model_fit_out.history["loss"]
   val_loss = model_fit_out.history["val_loss"]
   accuracy = model_fit_out.history["accuracy"]
   val_accuracy = model_fit_out.history["val_accuracy"]
@@ -18,6 +18,7 @@ def plot_loss_curves(model_fit_out):
   plt.legend()
 
   # plot accuracy
+  plt.figure()
   plt.plot(epochs, accuracy, label="Training accuracy")
   plt.plot(epochs, val_accuracy, label="Validation Accuracy")
   plt.title("accuracy")
